@@ -36,6 +36,7 @@
   bottom: 4vh;
   position: fixed;
   float: inline-end;
+  cursor: pointer 
 }
 .modal,
 .overlay {
@@ -72,6 +73,7 @@
   font-size: 20px;
   font-weight: 600;
   margin-top: 22px;
+  cursor: pointer 
 }
 .name {
   margin-left: 1vw;
@@ -146,7 +148,19 @@
 }
 /* left side styling end*/
 
-
+/* style for Window.jsx file*/
+.saveNotes{
+  height: max-content;
+  width: 72.5%;
+  background-color: #ffffff;
+  padding: 15px;
+  position: absolute;
+  margin-top: 2vh;
+  margin-left: 20px ;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+}
 .img1 {
   height: 38vh;
   margin-top: 15vh;

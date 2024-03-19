@@ -27,8 +27,12 @@ function Addnotes({ onGroupSelect }) {
     useEffect(() => {
         // Load data from localStorage if notesRef is not initialized
         if (!notesRef.current) {
-            const storedNotes = JSON.parse(localStorage.getItem("notes")) || [];
-            notesRef.current = storedNotes;
+            try {
+                const storedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+                notesRef.current = storedNotes;
+            } catch (error) {
+                console.error("Error parsing notes data from localStorage:", error);
+            }
         }
     }, []);
     
@@ -58,14 +62,14 @@ function Addnotes({ onGroupSelect }) {
 
         const updatedNotes = [...notesRef.current, newNote];
         localStorage.setItem("notes", JSON.stringify(updatedNotes));
-        notesRef.current = updatedNotes;
-
         setColorChoose(colors[0]);
+        notesRef.current = updatedNotes;       
         newChanges();
     };
+
     const handleGroupClick = (index) => {
-        const selectedGroup = notesRef.current[index];
-        onGroupSelect(selectedGroup);
+        const note = notesRef.current[index];
+        onGroupSelect(note);
     };
 
     return (
