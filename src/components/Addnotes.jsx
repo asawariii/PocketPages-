@@ -7,14 +7,12 @@ const colors = [
     "#0047FF",
     "#6691FF",
 ];
-
 const getInitials = (name) => {
     if (!name) return ""; // Check if name is undefined or null
     const words = name.split(" ");
     const initials = words.map((word) => word[0]);
     return initials.join(" ").toUpperCase();
 };
-
 function Addnotes({ onGroupSelect }) {
     const [modal, setModal] = useState(false);
     const [notesData, setNotesData] = useState("");
@@ -22,7 +20,6 @@ function Addnotes({ onGroupSelect }) {
     //const notesRef = useRef(JSON.parse(localStorage.getItem("Notes")) || []);
     const notesRef = useRef(null); // Initialize as null
     const [colorChoose, setColorChoose] = useState(colors[0]);
-    const [showBox, setShowBox] = useState(false);
 
     useEffect(() => {
         // Load data from localStorage if notesRef is not initialized
